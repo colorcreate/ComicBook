@@ -1,0 +1,20 @@
+﻿@model ComicBook.Models.ComicBook[]
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Indeks</h2>
+
+<div class="row">
+    @foreach (var comic in Model)
+    {
+        <div class="col-md-3">
+           <a href="@Url.Action("Detail", new { id = comic.Id })">
+            <h4>@comic.DisplayText</h4>
+            <img src="/Images/@comic.getCoverImageName"
+                 alt="@comic.getCoverImageName"
+                 class="img-responsive" />
+           </a>
+        </div>
+    }
+</div>
